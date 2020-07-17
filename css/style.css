@@ -6,10 +6,11 @@
 	text-decoration: none;
 	width: 100%;
 	float: left;
+	outline: none;
+	font-family: 'Jost', sans-serif;
 }
 
 body {
-	font-family: 'Jost', sans-serif;
 	background-color: #404040;
 }
 
@@ -61,7 +62,7 @@ header {
 
 
 /* Botão do Menu */
-label {
+.label {
 	cursor: pointer;
 	float: right;
 	width: 56px;
@@ -191,6 +192,71 @@ section {
 	box-shadow: 2px 2px 5px black;
 	width: 65%;
 	margin-left: 16%;
+}
+
+
+/* Adicionar cards */
+#formAdd {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#labelFile {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+#fileIcon {
+	text-align: center;
+	font-size: 60px;
+	align-self: center;
+	cursor: pointer;
+	color: lightgray;
+	text-shadow: 2px 2px 3px black;
+	display: flex;
+	justify-content: center;
+}
+
+#imgAdd {
+	display: none;
+	width: 80%;
+	cursor: pointer;
+}
+
+.addText {
+	font-size: 22px;
+	color: white;
+	text-shadow: 2px 2px 4px black;
+}
+
+#formAdd input, textarea {
+	background-color: #f5f5f5;
+	border: none;
+	padding: 2%;
+	margin: 0 5%;
+	font-size: 16px;
+	border-radius: 10px;
+	max-width: 100%; 
+	margin-bottom: 4%;
+}
+
+input[type="file"] {
+	display: none;
+}
+
+#formAdd input[type="submit"] {
+	padding: 2%;
+	margin: 7% 0 0 0;
+	font-size: 18px;
+	border-radius: 15px;
+	cursor: pointer;
+	background-color: #494949;
+	color: white;
+	width: 50%;
+	border: none;
+	box-shadow: 2px 2px 3px black;
 }
 
 
@@ -386,7 +452,7 @@ footer p {
 	}
 
 	/* Retirada do icone Menu */
-	label {
+	.label {
 		display: none;
 	}
 
@@ -427,11 +493,6 @@ footer p {
 	.img_prod {
 		transition: .3s ease-out;
 		align-content: center;
-	}
-
-	.img_prod:hover {
-		width: 85%;
-		transition: .3s;
 	}
 
 	/* Newsletter */
