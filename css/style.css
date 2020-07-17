@@ -1,0 +1,467 @@
+/* Config */
+* {
+	margin: 0;
+	padding: 0;
+	font-weight: 300;
+	text-decoration: none;
+	width: 100%;
+	float: left;
+}
+
+body {
+	font-family: 'Jost', sans-serif;
+	background-color: #404040;
+}
+
+a {
+	text-decoration: none;
+}
+
+
+/* Logo */
+.logo {
+	width: 15%;
+	position: static;
+	cursor: pointer;
+	padding: 2% 3%;
+}
+
+.logo_pc {
+	display: none;
+	cursor: pointer;
+	padding: 2% 3%;
+}
+
+
+/* Barra de navegação */
+.menu {
+	background-color: #262626;
+	flex-direction: column;
+	display: none;
+}
+
+.menu a {
+	padding-top: 2%;
+	padding-bottom: 2%;
+	text-align: center;
+	color: lightgray;
+	font-size: 22px;
+	width: 100%;
+}
+
+.menu a:hover {
+	transition: .2s;
+	background-color: #494949;
+	color: white;
+}
+
+header {
+	background-color: #333333;
+}
+
+
+/* Botão do Menu */
+label {
+	cursor: pointer;
+	float: right;
+	width: 56px;
+	padding: 4% 5%;
+}
+
+.icon {
+	font-size: 40px;
+	text-align: right;
+	background: none;
+	color: gray;
+	text-shadow: 2px 2px 3px black;
+	display: flex;
+}
+
+#checkbox {
+	display: none;
+}
+
+#checkbox:checked + .menu {
+	display: flex;
+}
+
+
+/* Slider */
+.banner {
+	margin-bottom: 6%;
+}
+
+.banner_pc {
+	display: none;
+}
+
+
+/* Conteudo */
+section {
+	margin-bottom: 3%;
+	display: flex;
+	align-content: stretch;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.cards {
+	display: flex;
+	background-color: #555555;
+	flex-direction: column;
+	width: 70%;
+	float: left;
+	padding: 3% 4%;
+	border-radius: 25px 25px 15px 15px;
+	align-items: center;
+	align-content: center;
+	justify-content: center;
+	margin-bottom: 3%;
+	box-shadow: 2px 2px 8px black;
+}
+
+
+/* Imagem do Produto */
+.img_prod {
+	width: 80%;
+}
+
+.img_prod img {
+	width: 100%;
+}
+
+
+/* Texto */
+.text {
+	display: flex;
+	flex-direction: column;
+	padding-top: 2%;
+	text-align: center;
+
+}
+
+.text h1 {
+	color: white;
+	font-size: 30px;
+	font-weight: 500;
+	margin-top: 2%;
+	margin-bottom: 2%;
+}
+
+.text h2 {
+	color: #0dde02;
+	font-size: 27px;
+	font-weight: 400;
+	margin-bottom: 2%;
+}
+
+.text p {
+	font-size: 16px;
+	color: #262626;
+	font-weight: 500;
+}
+
+/* Span Parcela */
+.parcela {
+	color: #b3b3b3;
+	font-size: 22px;
+}
+
+
+/* Botão Comprar */
+.text a {
+	text-decoration: none;
+	color: #f5f5f5;
+	font-size: 27px;
+	background-color: #606060;
+	width: 60%;
+	text-align: center;
+	border-radius: 20px;
+	padding: 2%;
+	margin-left: 18%;
+	box-shadow: 2px 2px 5px #262626;
+	transition: .3s ease-out;
+}
+
+.text a:hover {
+	background-color: white;
+	color: black;
+	transition: .3s;
+	box-shadow: 2px 2px 5px black;
+	width: 65%;
+	margin-left: 16%;
+}
+
+
+/* Newsletter */
+.newsletter {
+	background-color: #323232;
+	padding-bottom: 4%;
+}
+
+.newsletter h2 {
+	color: #f5f5f5;
+	font-size: 16px;
+	font-weight: 400;
+	text-align: center;
+	padding: 2% 0 2% 0;
+}
+
+.newsletter input {
+	box-shadow: 3px 3px 5px #262626;
+}
+
+.newsletter input[type="email"] {
+	width: 65%;
+	padding: 2%;
+	margin-left: 2%;
+	background-color: #8a8a8a;
+	border-radius: 5px 0 0 5px;
+	border: none;
+	font-size: 14px;
+}
+
+.newsletter input[type="submit"] {
+	width: 25%;
+	padding: 2%;
+	border-radius: 0 5px 5px 0;
+	background-color: #595959;
+	color: #f5f5f5;
+	border: none;
+	font-size: 14px;
+	cursor: pointer;
+}
+
+.newsletter input[type="submit"]:hover {
+	background-color: #404040;
+	transition: .3s;
+}
+
+
+/* Rodapé */
+footer {
+	background-color: #494949;
+	width: 100%;
+    padding: 2% 0 2% 0;
+}
+
+footer p {
+	font-size: 12px;
+	color: #919191;
+	text-align: center;
+}
+
+
+/* Responsividade */
+
+/* Icone menu celular */
+@media screen and (min-width: 450px) {
+	.icon {
+		font-size: 53px;
+	}
+}
+
+@media screen and (min-width: 590px) {
+	.cards {
+		width: 60%;
+	}
+
+	.icon {
+		font-size: 63px;
+	}
+
+	.img_prod {
+		width: 80%;
+	}
+}
+
+/* Ipad */
+@media screen and (min-width: 700px) {
+
+	/* Banner */
+	.banner {
+		display: none;
+	}
+
+	.banner_pc {
+		display: flex;
+		margin-bottom: 3%;
+	}
+
+	/* Icone Menu */
+	.icon {
+		font-size: 76px;
+		height: 30px;
+	}
+
+	label {
+		padding: 3.5% 5%;
+	}
+
+	/* Logo */
+	.logo {
+		width: 12%;
+	}
+
+	/* Fonte Menu */
+	.menu a {
+		font-size: 33px;
+	}
+
+	/* Conteudo */
+	.cards {
+		width: 25%;
+		margin: 0 2% 0 0;
+		margin-bottom: 2%;
+		padding: 2% 3%;
+	}
+
+	.cards:nth-child(1) {
+		margin-left: 1%;
+	}
+
+	.img_prod {
+		width: 80%;
+	}
+
+	.img_prod img {
+		width: 100%;
+	}
+
+	.text {
+		width: 100%;
+	}
+
+	.text a {
+		font-size: 30px;
+		padding: 3%;
+		width: 70%;
+		margin-left: 13%;
+	}
+
+	.text a:hover {
+		width: 75%;
+		margin-left: 10%;
+	}
+
+	section {
+		
+	}
+}
+
+/* Ipad Médio */
+@media screen and (min-width: 710px) {
+	.cards {
+		width: 60%;
+	}
+}
+
+
+/* Laptop */
+@media screen and (min-width: 890px) {
+
+	.cards {
+		width: 25%;
+	}
+
+	/* Logo ajuste */
+	.menu .logo_pc {
+		display: flex;
+		width: 12.5%;
+		float: left;
+	}
+
+	.menu .logo_pc:hover {
+		background: none;
+	}
+
+	.logo {
+		display: none;
+	}
+
+	/* Menu PC */
+	#checkbox + .menu {
+		display: flex;
+	}
+
+	/* Retirada do icone Menu */
+	label {
+		display: none;
+	}
+
+	/* Novo menu */
+	.menu {
+		background-color: #262626;
+		flex-direction: row;
+		display: flex;
+		height: 100px;
+	}
+
+	.menu a {
+		padding: 1%;
+		text-align: center;
+		color: lightgray;
+		font-size: 22px;
+		float: right;
+		align-self: center;
+		transition: .3s ease-out;
+	}
+
+	.menu a:hover {
+		font-size: 26px;
+		transition: .3s;
+	}
+
+	#menu_pc {
+		align-self: center;
+		padding: 3%;
+		width: 30%;
+	}
+
+	#menu_pc:hover {
+		background-color: none;
+	}
+
+	/* Produto */
+	.img_prod {
+		transition: .3s ease-out;
+		align-content: center;
+	}
+
+	.img_prod:hover {
+		width: 85%;
+		transition: .3s;
+	}
+
+	/* Newsletter */
+	.newsletter {
+		padding-bottom: 2%;
+	}
+
+	.newsletter h2 {
+		font-size: 24px;
+	}
+
+	.newsletter input[type="email"] {
+		font-size: 24px;
+		padding: 1%;
+		margin-left: 4%;
+	}
+
+	.newsletter input[type="submit"] {
+		font-size: 24px;
+		padding: 1%;
+		border-radius: 0 15px 15px 0;
+		transition: .3s ease-out;
+	}
+
+	/* Rodapé */
+	footer p {
+		font-size: 20px;
+	}
+
+	footer {
+		padding: 1% 0 1% 0;
+	}
+}
