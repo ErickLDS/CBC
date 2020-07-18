@@ -8,6 +8,7 @@
 	float: left;
 	outline: none;
 	font-family: 'Jost', sans-serif;
+	-webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -98,7 +99,7 @@ header {
 
 
 /* Conteudo */
-section {
+#conteudo {
 	margin-bottom: 3%;
 	display: flex;
 	align-content: stretch;
@@ -232,14 +233,15 @@ section {
 }
 
 #formAdd input, textarea {
-	background-color: #f5f5f5;
-	border: none;
+	background-color: #494949;
+	border: 2px solid #161616;
 	padding: 2%;
 	margin: 0 5%;
 	font-size: 16px;
 	border-radius: 10px;
 	max-width: 100%; 
 	margin-bottom: 4%;
+	color: white;
 }
 
 input[type="file"] {
@@ -252,11 +254,16 @@ input[type="file"] {
 	font-size: 18px;
 	border-radius: 15px;
 	cursor: pointer;
-	background-color: #494949;
+	background-color: #262626;
 	color: white;
 	width: 50%;
 	border: none;
 	box-shadow: 2px 2px 3px black;
+}
+
+#formAdd input[type="submit"]:hover {
+	background-color: white;
+	color: black;
 }
 
 
@@ -461,7 +468,7 @@ footer p {
 		background-color: #262626;
 		flex-direction: row;
 		display: flex;
-		height: 100px;
+		height: auto;
 	}
 
 	.menu a {
@@ -493,6 +500,15 @@ footer p {
 	.img_prod {
 		transition: .3s ease-out;
 		align-content: center;
+	}
+
+	/* Add */
+	#formAdd input[type="submit"] {
+		font-size: 24px;
+	}
+
+	#formAdd input, textarea {
+		font-size: 20px;
 	}
 
 	/* Newsletter */

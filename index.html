@@ -34,13 +34,13 @@
 <img class="banner" src="imagens\banner.jpg">
 <img class="banner_pc" src="imagens\Banner_pc.jpg">
 
-<section>
+<section id="conteudo">
 
 	<!-- Logistica -->
 	<article class="cards">
 		<a href="" class="img_prod"><img src="imagens/Produtos/GabineteLog.png"></a>
 		<div class="text">
-			<h1 class="titulo">Logística</h1>
+			<h1 class="titulo Computador">Logística</h1>
 			<p>AMD Athlon 200ge/RAM 4Gb/SSD 240Gb/A320M-K</p>
 			<h2>Preço: R$2.000,00<br><span class="parcela">Ou 12 x R$175,00</span></h2>
 			<a href="" class="btnComprar">Comprar</a>
@@ -90,9 +90,10 @@
 			<a href="#">Comprar</a>
 		</div>
 	</article>
+</section>
 
-
-	<!-- Adicionar cards -->
+<!-- Adicionar cards -->
+<div id="conteudo">
 	<article class="cards">
 		<form name="add" method="POST" action="php/upload.php" enctype="multipart/form-data" id="formAdd">
 
@@ -107,16 +108,16 @@
 
 			<!-- Preço -->
 			<label><p class="addText">Preço:</p></label>
-			<input type="number" name="preco" required="required" autocomplete="off" placeholder="Digite o preço...">
+			<input type="text" name="preco" required="required" autocomplete="off" placeholder="Digite o preço...">
 
 			<!-- Descrição -->
 			<label><p class="addText">Descrição:</p></label>
 			<textarea name="descricao" required="required" autocomplete="off" placeholder="Digite a descrição..."></textarea>
 
-			<input type="submit" name="Enviar" value="Enviar">
+			<input class="btnEnviarAdd" type="submit" name="Enviar" value="Enviar">
 		</form>
 	</article>
-</section>
+</div>
 
 <div class="newsletter">
 	<h2>Cadastre seu Email para receber novidades!</h2>
@@ -125,6 +126,7 @@
 		<input type="submit" name="Enviar">
 	</form>
 </div>
+
 
 <footer>
 	<p> Copyright © CBC 2020. Todos os direitos reservados.</p>
