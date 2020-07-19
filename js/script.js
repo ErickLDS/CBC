@@ -2,15 +2,22 @@ var imgAdd = document.getElementById("img");
 var img = document.getElementById("imgAdd");
 var btnAddImg = document.getElementById("fileIcon");
 var conteudo = document.getElementById("conteudo");
+var form = document.getElementById("formAdd");
 
-//Upload Imagem
+//Mostrar Imagem do Upload
 imgAdd.addEventListener("change", function () {
+
+	//Pegando valor
 	const leitor = new FileReader(); 
 	const arquivo = imgAdd.files[0];
 
 	if (arquivo) {
 		leitor.addEventListener("load", function () {
+
+			//Adicionando link da imagem
 			img.setAttribute("src", leitor.result);
+
+			//Mostrando imagem
 			btnAddImg.style.display = "none";
 			img.style.display = "flex";
 		});
@@ -19,19 +26,43 @@ imgAdd.addEventListener("change", function () {
 });
 
 //Ajax
-const ajax = new XMLHttpRequest();
+window.addEventListener("load", function () {
+	const ajax = new XMLHttpRequest();
 
-ajax.open("GET", "php/downloadCards.php");
+	ajax.open("GET", "php/downloadCards.php", true);
 
-ajax.addEventListener("load", function () {
-	if (ajax.readyState = 4 && ajax.status == 200) {
-		try {
-			var json = JSON.parse(ajax.responseText);
-			conteudo.innerHTML += json;
-		} catch (ex) {
-			console.warn(ex);
+	ajax.addEventListener("load", function () {
+
+		//Verificando status do Ajax
+		if (ajax.readyState = 4 && ajax.status == 200) {
+			try {
+
+				//Recebendo valores
+				var json = JSON.parse(ajax.responseText);
+
+				//Apresentando card
+				for (let i = 0; i < json.length; i++) {
+
+					//Preparando valor da parcela
+					var parcela = parseFloat(json[i].preco) / 12;
+					parcela = parcela.toFixed(2);
+
+					//Colocando card na página
+					var card = "<article class='cards'><a href='' class='img_prod'><img src='imagens/Produtos/"+ json[i].nomeImg +"'></a><div class='text'><h1 class='titulo'>"+ json[i].nome +"</h1><p>"+ json[i].descricao +"</p><h2>Preço: R$"+ json[i].preco +"<br><span class='parcela'>Ou 12 x R$"+ parcela +"</span></h2><a href='#''>Comprar</a></div></article>";
+					conteudo.innerHTML += card;
+				}
+
+			} catch (ex) {
+
+				//Possíveis erros.
+				console.warn(ex);
+			}
 		}
-	}
+	});
+
+	ajax.send();
 });
 
-ajax.send();
+
+
+

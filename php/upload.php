@@ -1,8 +1,6 @@
 <?php
 
-$mensagem = 0;
-
-//Abrindo conexão com o Banco de Dados
+//Estabelecendo conexão com o BD
 include("conexao.php");
 
 if ($_POST['Enviar']) {
