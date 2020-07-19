@@ -44,11 +44,13 @@ window.addEventListener("load", function () {
 				for (let i = 0; i < json.length; i++) {
 
 					//Preparando valor da parcela
-					var parcela = parseFloat(json[i].preco) / 12;
-					parcela = parcela.toFixed(2);
+					var preco = json[i].preco;
+					var parcela = preco / 12;
+					preco = preco.toFixed(2).toString().replace(".", ",");
+					parcela = parcela.toFixed(2).toString().replace(".", ",");
 
 					//Colocando card na página
-					var card = "<article class='cards'><a href='' class='img_prod'><img src='imagens/Produtos/"+ json[i].nomeImg +"'></a><div class='text'><h1 class='titulo'>"+ json[i].nome +"</h1><p>"+ json[i].descricao +"</p><h2>Preço: R$"+ json[i].preco +"<br><span class='parcela'>Ou 12 x R$"+ parcela +"</span></h2><a href='#''>Comprar</a></div></article>";
+					var card = "<article class='cards'><a href='' class='img_prod'><img src='imagens/Produtos/"+ json[i].nomeImg +"'></a><div class='text'><h1 class='titulo'>"+ json[i].nome +"</h1><p>"+ json[i].descricao +"</p><h2>Preço: R$"+ preco +"<br><span class='parcela'>Ou 12 x R$"+ parcela +"</span></h2><a href='#''>Comprar</a></div></article>";
 					conteudo.innerHTML += card;
 				}
 

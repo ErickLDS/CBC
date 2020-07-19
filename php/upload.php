@@ -1,5 +1,7 @@
 <?php
 
+$mensagem = 0;
+
 //Estabelecendo conexão com o BD
 include("conexao.php");
 
@@ -12,6 +14,8 @@ if ($_POST['Enviar']) {
 	//Consultando Banco de dados
 	@$consulta_nome = mysqli_query($conexao, "SELECT nome FROM cards WHERE nome = $nome");
 	@$nome_bd = mysqli_fetch_array($consulta_nome);
+	@$consulta_nomeImg = mysqli_query($conexao, "SELECT nomeImg FROM cards WHERE nomeImg = $nomeImg");
+	@$nomeImg_bd = mysqli_fetch_array($consulta_nomeImg);
 
 	if ($nome == $nome_bd) {
 		$mensagemErro = "O nome digitado já está em uso.";
@@ -40,27 +44,33 @@ if ($_POST['Enviar']) {
 				// Criando nome do arquivo com id unico
 				$nomeImg = uniqid().".$extensao";
 
-				// Movendo o arquivo
-				if (move_uploaded_file($pastaTmp, $pasta.$nomeImg)) {
-					$mensagem++;
+				//Verificando se já tem uma Imagem com esse nome
+				if ($nomeImg == $nomeImg_bd) {
+					$mensagemErro = "A imagem inserida já foi enviada.";
 				}
 				else {
-					$mensagemErro = "Erro, não foi efetuado o Upload";
-				}
+					// Movendo o arquivo
+					if (move_uploaded_file($pastaTmp, $pasta.$nomeImg)) {
+						$mensagem++;
+					}
+					else {
+						$mensagemErro = "Erro, não foi efetuado o Upload";
+					}
+
+					//Insert
+					$insert = mysqli_query($conexao, "INSERT INTO cards (nome, preco, descricao, nomeImg) VALUES ('$nome', '$preco', '$descricao', '$nomeImg')");
+
+					if ($insert) {
+						$mensagem++;
+					}
+					else {
+						$mensagemErro = "Erro. Não foi possível inserir os dados ao BD.";
+					}
+				}			
 			}
 			else {
 				$mensagemErro = "Formato inválido.";
 			}
-		}
-
-		//Insert
-		$insert = mysqli_query($conexao, "INSERT INTO cards (nome, preco, descricao, nomeImg) VALUES ('$nome', '$preco', '$descricao', '$nomeImg')");
-
-		if ($insert) {
-			$mensagem++;
-		}
-		else {
-			$mensagemErro = "Erro. Não foi possível inserir os dados ao BD.";
 		}
 	}
 

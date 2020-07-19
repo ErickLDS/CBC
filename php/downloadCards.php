@@ -10,6 +10,7 @@ $consulta_bd = mysqli_query($conexao, "SELECT * FROM cards");
 
 //Varrendo dados do BD
 while ($consulta = mysqli_fetch_assoc($consulta_bd)) {
+	$consulta['preco'] = floatval($consulta['preco']);
 	$json[] = $consulta;
 }
 
