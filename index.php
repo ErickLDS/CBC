@@ -39,7 +39,7 @@
 <?php
 
 //Abrindo conexão com o Banco de Dados
-include("conexao.php");
+include("php/conexao.php");
 
 //Consultando o banco de dados
 $consulta_bd = mysqli_query($conexao, "SELECT * FROM cards");
@@ -47,6 +47,16 @@ $consulta_bd = mysqli_query($conexao, "SELECT * FROM cards");
 //Varrendo dados do BD
 while ($consulta = mysqli_fetch_assoc($consulta_bd)) {
 	$consulta['preco'] = floatval($consulta['preco']);
+	$parcela = $consulta['preco'] / 12;
+	$parcela = number_format($parcela, 2, ",", ".");
+	$consulta['preco'] = number_format($consulta['preco'], 2, ",", ".");
+	echo "<article class='cards'>
+	<a href='' class='img_prod'><img src='imagens/Produtos/". $consulta['nomeImg'] ."'></a>
+	<div class='text'><h1 class='titulo'>". $consulta['nome'] ."</h1>
+	<p>". $consulta['descricao'] ."</p>
+	<h2>Preço: R$". $consulta['preco'] ."<br><span class='parcela'>Ou 12 x R$". $parcela ."</span></h2>
+	<a href='#''>Comprar</a></div>
+	</article>";
 }
 
 ?>
@@ -65,7 +75,7 @@ while ($consulta = mysqli_fetch_assoc($consulta_bd)) {
 
 			<!-- Título -->
 			<label><p class="addText">Nome:</p></label>
-			<input type="text" name="nome" required="required" autocomplete="off" autofocus="" placeholder="Digite o nome...">
+			<input type="text" name="nome" required="required" autocomplete="off" placeholder="Digite o nome...">
 
 			<!-- Preço -->
 			<label><p class="addText">Preço:</p></label>

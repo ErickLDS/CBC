@@ -6,6 +6,7 @@ $mensagem = 0;
 include("conexao.php");
 
 if ($_POST['Enviar']) {
+
 	//Recebendo dados do usuário
 	$nome = mysqli_real_escape_string($conexao, strip_tags(trim($_POST['nome'])));
 	$preco = mysqli_real_escape_string($conexao, strip_tags(trim($_POST['preco'])));
